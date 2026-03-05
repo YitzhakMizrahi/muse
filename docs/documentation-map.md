@@ -13,6 +13,7 @@
 - `docs/decision-log.md`
 - `docs/audit-framework.md`
 - `docs/implementation-plan.md`
+- `docs/milestone-1-mapping.md`
 - `docs/roadmap.md`
 
 ## Experience

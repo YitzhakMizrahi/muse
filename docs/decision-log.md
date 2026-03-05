@@ -265,3 +265,9 @@ Muse should be audited through distinct product, output quality, UX, visual, and
 
 Reason:
 The project should not rely only on intuition or feature progress; each milestone should be reviewed against explicit quality lenses.
+
+### D-045
+Milestone 1 should focus on the core session loop through `/create` and a generated result surface, with smart intake, adaptive follow-up questions, normalized input, structured generation, recommended output, alternate comparison, and minimal loading/failure states.
+
+Reason:
+This is the smallest implementation slice that proves the Muse product loop correctly without dragging visual polish, refinement depth, or export UX into the first build phase.
