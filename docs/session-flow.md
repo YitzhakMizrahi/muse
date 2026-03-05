@@ -81,6 +81,13 @@ And secondarily on:
 
 The recommended output should lead with the visual concept and then explain the reasoning.
 
+Leading visual panels:
+
+1. Hero Panel
+2. Section Rhythm Panel
+3. Style System Panel
+4. Conversion Moment Panel
+
 It should include:
 
 1. direction name
@@ -117,6 +124,11 @@ Rules:
 - each alternate should be strategically distinct
 - each alternate should be fast to compare
 - each alternate should make the tradeoff legible
+
+Alternate visual model:
+
+1. mini hero panel
+2. mini style/feel panel
 
 ### 7. Refinement
 

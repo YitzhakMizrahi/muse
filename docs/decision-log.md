@@ -181,3 +181,21 @@ The Muse v1 experience is now defined as a seven-step screen/state flow: entry, 
 
 Reason:
 The product is now specified enough to define the concrete session surfaces before implementation resumes.
+
+### D-031
+The recommended Direction Brief should use a four-tier density model: micro, short, compact prose, and structured bullets.
+
+Reason:
+The artifact needs to feel substantial and trustworthy without becoming dense, inconsistent, or difficult to render later in the UI.
+
+### D-032
+The recommended direction should be presented through a four-panel visual concept set: Hero, Section Rhythm, Style System, and Conversion Moment.
+
+Reason:
+Muse should feel visual-first without pretending to be a full design tool or relying on one oversized mockup.
+
+### D-033
+Alternates should remain visually comparable, but in compressed form using a mini hero panel and a mini style/feel panel.
+
+Reason:
+Comparison should stay visual, but the alternates should not compete with the full recommended direction.

@@ -72,6 +72,55 @@ The recommended Direction Brief should include:
 11. example application surfaces
 12. why this direction is recommended
 
+## Direction Brief Density
+
+The recommended brief should balance readability and usefulness through four density tiers:
+
+1. micro
+2. short
+3. compact prose
+4. structured bullets
+
+The artifact should feel substantial, but not bloated or essay-like.
+
+## Visual Concept Panel Model
+
+The recommended direction should be visual-first before the full brief is read.
+
+Muse should lead with four visual concept panels:
+
+1. Hero Panel
+2. Section Rhythm Panel
+3. Style System Panel
+4. Conversion Moment Panel
+
+### Hero Panel
+
+Purpose:
+
+- show first impression
+- communicate headline posture, hierarchy, mood, and CTA behavior
+
+### Section Rhythm Panel
+
+Purpose:
+
+- show how the landing page is paced after the hero
+- communicate section order, density, and narrative flow
+
+### Style System Panel
+
+Purpose:
+
+- make typography, color, surfaces, and emphasis behavior legible at a glance
+
+### Conversion Moment Panel
+
+Purpose:
+
+- show how the page asks for action
+- communicate the emotional intensity and structure of the CTA moment
+
 ## Alternate Direction Shape
 
 Each lighter alternate should include:
@@ -88,6 +137,17 @@ Rules:
 - strategically distinct from the recommended direction
 - enough to compare, not enough to replace the full brief
 - should fit comfortably in one panel or card
+
+### Alternate Visual Model
+
+Alternates should also remain visual, but in compressed form.
+
+Each alternate should include:
+
+1. mini hero panel
+2. mini style/feel panel
+
+This keeps comparison visual without making the alternates compete with the full recommended concept.
 
 ### Alternate Section Rules
 
