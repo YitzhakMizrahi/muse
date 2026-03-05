@@ -7,17 +7,23 @@ import { motion } from "framer-motion";
 
 import { saveDraftSession } from "@/lib/draft-session";
 import {
-  moodOptions,
-  sessionFormDefaults,
-  sessionFormSchema,
-  type SessionFormValues,
+  actionOptions,
+  audienceOptions,
+  feelOptions,
+  inferAudienceFromPrompt,
+  inferPageActionFromPrompt,
+  museSessionDefaults,
+  museSessionSchema,
+  normalizeMuseSession,
+  recommendFeelQualities,
+  type MuseSessionValues,
 } from "@/lib/session";
 import { cn } from "@/lib/utils";
 
-type FieldErrors = Partial<Record<keyof SessionFormValues, string>>;
+type FieldErrors = Partial<Record<keyof MuseSessionValues, string>>;
 
-function validateForm(values: SessionFormValues): FieldErrors {
-  const parsed = sessionFormSchema.safeParse(values);
+function validateForm(values: MuseSessionValues): FieldErrors {
+  const parsed = museSessionSchema.safeParse(values);
 
   if (parsed.success) {
     return {};
@@ -26,40 +32,66 @@ function validateForm(values: SessionFormValues): FieldErrors {
   const issues = parsed.error.flatten().fieldErrors;
 
   return {
-    title: issues.title?.[0],
-    concept: issues.concept?.[0],
-    audience: issues.audience?.[0],
-    moodWords: issues.moodWords?.[0],
+    rawPrompt: issues.rawPrompt?.[0],
+    primaryAudience: issues.primaryAudience?.[0],
+    feelQualities: issues.feelQualities?.[0],
+    primaryPageAction: issues.primaryPageAction?.[0],
     references: issues.references?.[0],
+    constraints: issues.constraints?.[0],
+    antiPreferences: issues.antiPreferences?.[0],
   };
 }
 
 export function SessionForm() {
   const router = useRouter();
-  const [values, setValues] = useState<SessionFormValues>(sessionFormDefaults);
+  const [values, setValues] = useState<MuseSessionValues>(museSessionDefaults);
   const [submitted, setSubmitted] = useState(false);
 
   const errors = useMemo(() => validateForm(values), [values]);
   const hasErrors = Object.values(errors).some(Boolean);
+  const inferredAudience = useMemo(
+    () => inferAudienceFromPrompt(values.rawPrompt),
+    [values.rawPrompt],
+  );
+  const inferredAction = useMemo(
+    () => inferPageActionFromPrompt(values.rawPrompt),
+    [values.rawPrompt],
+  );
+  const recommendedFeels = useMemo(
+    () => recommendFeelQualities(values.rawPrompt),
+    [values.rawPrompt],
+  );
 
-  function toggleMoodWord(word: (typeof moodOptions)[number]) {
+  const promptReady = values.rawPrompt.trim().length >= 24;
+  const audienceReady = values.primaryAudience.trim().length > 0;
+  const feelsReady = values.feelQualities.length > 0;
+
+  const normalized = useMemo(() => {
+    const parsed = museSessionSchema.safeParse(values);
+    if (!parsed.success) {
+      return null;
+    }
+    return normalizeMuseSession(parsed.data);
+  }, [values]);
+
+  function toggleFeel(feel: string) {
     setValues((current) => {
-      const exists = current.moodWords.includes(word);
+      const exists = current.feelQualities.includes(feel);
 
       if (exists) {
         return {
           ...current,
-          moodWords: current.moodWords.filter((entry) => entry !== word),
+          feelQualities: current.feelQualities.filter((entry) => entry !== feel),
         };
       }
 
-      if (current.moodWords.length >= 4) {
+      if (current.feelQualities.length >= 3) {
         return current;
       }
 
       return {
         ...current,
-        moodWords: [...current.moodWords, word],
+        feelQualities: [...current.feelQualities, feel],
       };
     });
   }
@@ -73,11 +105,11 @@ export function SessionForm() {
     }
 
     saveDraftSession(values);
-    router.push("/create/territories");
+    router.push("/create/result");
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+    <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
       <section className="rounded-[2rem] border border-paper/10 bg-ink px-5 py-6 text-paper shadow-halo md:px-7 md:py-8">
         <div className="flex items-start justify-between gap-4 border-b border-paper/10 pb-5">
           <div>
@@ -85,7 +117,7 @@ export function SessionForm() {
               Step 01
             </p>
             <h1 className="mt-3 font-display text-4xl leading-[0.94] tracking-[-0.04em] md:text-5xl">
-              Enter the spark.
+              Start with the rough idea.
             </h1>
           </div>
 
@@ -97,108 +129,179 @@ export function SessionForm() {
           </Link>
         </div>
 
-        <p className="mt-5 max-w-xl text-sm leading-6 text-paper/70 md:text-base">
-          Start with enough signal to shape a direction. The goal is not perfect
-          documentation. The goal is a sharp beginning.
+        <p className="mt-5 max-w-2xl text-sm leading-6 text-paper/70 md:text-base">
+          Muse starts from your rough language, then sharpens it with a few guided
+          decisions. The point is not to fill a form. The point is to give the system
+          enough signal to recommend a direction worth building on.
         </p>
 
         <form className="mt-8 grid gap-6" onSubmit={handleSubmit} noValidate>
           <Field
-            label="Project title"
-            hint="Name the thing as it wants to exist."
-            error={submitted ? errors.title : undefined}
-          >
-            <input
-              value={values.title}
-              onChange={(event) =>
-                setValues((current) => ({ ...current, title: event.target.value }))
-              }
-              className={inputClassName(submitted ? errors.title : undefined)}
-              placeholder="A ritual platform for focused work"
-            />
-          </Field>
-
-          <Field
-            label="Concept"
-            hint="What are you making, and what should it feel like in the world?"
-            error={submitted ? errors.concept : undefined}
+            label="The rough idea"
+            hint="Describe what you are building in plain language. Include who it is for or what should feel different if you know."
+            error={submitted ? errors.rawPrompt : undefined}
           >
             <textarea
-              value={values.concept}
+              value={values.rawPrompt}
               onChange={(event) =>
-                setValues((current) => ({ ...current, concept: event.target.value }))
+                setValues((current) => ({ ...current, rawPrompt: event.target.value }))
               }
-              rows={6}
-              className={inputClassName(submitted ? errors.concept : undefined)}
-              placeholder="Describe the idea in plain language."
+              rows={7}
+              className={inputClassName(submitted ? errors.rawPrompt : undefined)}
+              placeholder="I am building a product for..."
             />
           </Field>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            <Field
-              label="Audience"
-              hint="Who should feel seen by this?"
-              error={submitted ? errors.audience : undefined}
+          {promptReady ? (
+            <QuestionCard
+              eyebrow="Question 1"
+              title="Who is this mainly for?"
+              note={`Muse pulled a likely answer from your prompt: ${inferredAudience}`}
+              error={submitted ? errors.primaryAudience : undefined}
             >
+              <ChipRow>
+                {audienceOptions.map((option) => (
+                  <SelectableChip
+                    key={option}
+                    active={values.primaryAudience === option}
+                    onClick={() =>
+                      setValues((current) => ({
+                        ...current,
+                        primaryAudience: option,
+                      }))
+                    }
+                    label={option}
+                  />
+                ))}
+              </ChipRow>
               <input
-                value={values.audience}
+                value={values.primaryAudience}
                 onChange={(event) =>
                   setValues((current) => ({
                     ...current,
-                    audience: event.target.value,
+                    primaryAudience: event.target.value,
                   }))
                 }
-                className={inputClassName(submitted ? errors.audience : undefined)}
-                placeholder="Design-led teams building a new category"
+                className={inputClassName(submitted ? errors.primaryAudience : undefined)}
+                placeholder={inferredAudience}
               />
-            </Field>
+            </QuestionCard>
+          ) : null}
 
-            <Field
-              label="References"
-              hint="List influences, scenes, brands, materials, or moods."
-              error={submitted ? errors.references : undefined}
+          {promptReady && audienceReady ? (
+            <QuestionCard
+              eyebrow="Question 2"
+              title="How should it feel when someone lands on it?"
+              note={`Recommended from your prompt: ${recommendedFeels.join(", ")}`}
+              error={submitted ? errors.feelQualities : undefined}
             >
+              <ChipRow>
+                {feelOptions.map((feel) => (
+                  <SelectableChip
+                    key={feel}
+                    active={values.feelQualities.includes(feel)}
+                    onClick={() => toggleFeel(feel)}
+                    label={feel}
+                  />
+                ))}
+              </ChipRow>
+            </QuestionCard>
+          ) : null}
+
+          {promptReady && audienceReady && feelsReady ? (
+            <QuestionCard
+              eyebrow="Question 3"
+              title="What should the page get people to do first?"
+              note={`Muse would default to: ${inferredAction}`}
+              error={submitted ? errors.primaryPageAction : undefined}
+            >
+              <ChipRow>
+                {actionOptions.map((option) => (
+                  <SelectableChip
+                    key={option}
+                    active={values.primaryPageAction === option}
+                    onClick={() =>
+                      setValues((current) => ({
+                        ...current,
+                        primaryPageAction: option,
+                      }))
+                    }
+                    label={option}
+                  />
+                ))}
+              </ChipRow>
               <input
-                value={values.references}
+                value={values.primaryPageAction}
                 onChange={(event) =>
                   setValues((current) => ({
                     ...current,
-                    references: event.target.value,
+                    primaryPageAction: event.target.value,
                   }))
                 }
-                className={inputClassName(submitted ? errors.references : undefined)}
-                placeholder="Magazines, galleries, launch campaigns, textures"
+                className={inputClassName(submitted ? errors.primaryPageAction : undefined)}
+                placeholder={inferredAction}
               />
-            </Field>
-          </div>
+            </QuestionCard>
+          ) : null}
 
-          <Field
-            label="Mood words"
-            hint="Choose up to four. These will steer the first set of territories."
-            error={submitted ? errors.moodWords : undefined}
-          >
-            <div className="flex flex-wrap gap-2">
-              {moodOptions.map((word) => {
-                const active = values.moodWords.includes(word);
-
-                return (
-                  <button
-                    key={word}
-                    type="button"
-                    onClick={() => toggleMoodWord(word)}
-                    className={cn(
-                      "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.22em] transition",
-                      active
-                        ? "border-ember bg-ember text-ink"
-                        : "border-paper/12 text-paper/72 hover:border-paper/30 hover:bg-paper/6 hover:text-paper",
-                    )}
-                  >
-                    {word}
-                  </button>
-                );
-              })}
+          {promptReady && audienceReady && feelsReady ? (
+            <div className="grid gap-6 md:grid-cols-3">
+              <Field
+                label="References"
+                hint="Optional scenes, products, or brands."
+                error={submitted ? errors.references : undefined}
+              >
+                <textarea
+                  value={values.references}
+                  onChange={(event) =>
+                    setValues((current) => ({
+                      ...current,
+                      references: event.target.value,
+                    }))
+                  }
+                  rows={4}
+                  className={inputClassName(submitted ? errors.references : undefined)}
+                  placeholder="Optional"
+                />
+              </Field>
+              <Field
+                label="Constraints"
+                hint="Optional technical or business limits."
+                error={submitted ? errors.constraints : undefined}
+              >
+                <textarea
+                  value={values.constraints}
+                  onChange={(event) =>
+                    setValues((current) => ({
+                      ...current,
+                      constraints: event.target.value,
+                    }))
+                  }
+                  rows={4}
+                  className={inputClassName(submitted ? errors.constraints : undefined)}
+                  placeholder="Optional"
+                />
+              </Field>
+              <Field
+                label="What to avoid"
+                hint="Optional anti-patterns or wrong directions."
+                error={submitted ? errors.antiPreferences : undefined}
+              >
+                <textarea
+                  value={values.antiPreferences}
+                  onChange={(event) =>
+                    setValues((current) => ({
+                      ...current,
+                      antiPreferences: event.target.value,
+                    }))
+                  }
+                  rows={4}
+                  className={inputClassName(submitted ? errors.antiPreferences : undefined)}
+                  placeholder="Optional"
+                />
+              </Field>
             </div>
-          </Field>
+          ) : null}
 
           <div className="flex flex-col gap-3 border-t border-paper/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -206,7 +309,7 @@ export function SessionForm() {
                 Next
               </p>
               <p className="mt-2 text-sm text-paper/65">
-                Generate three creative territories from this spark.
+                Generate one recommended direction and two alternates.
               </p>
             </div>
 
@@ -214,7 +317,7 @@ export function SessionForm() {
               type="submit"
               className="rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink transition hover:bg-white"
             >
-              Build Territories
+              Generate Recommendation
             </button>
           </div>
         </form>
@@ -227,39 +330,28 @@ export function SessionForm() {
         className="rounded-[2rem] border border-ink/10 bg-[#eee3d4] px-5 py-6 md:px-7 md:py-8"
       >
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink/42">
-          Session Preview
+          Normalized Session
         </p>
 
         <div className="mt-6 rounded-[1.75rem] border border-ink/10 bg-paper/80 p-5">
           <p className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
-            {values.title || "Untitled direction"}
+            {normalized?.productSummary ?? "Muse will summarize the idea here."}
           </p>
-          <p className="mt-4 text-sm leading-6 text-ink/70">
-            {values.concept || "A rough spark waiting for shape."}
-          </p>
-
-          <div className="mt-6 grid gap-3">
-            <PreviewBlock label="Audience" value={values.audience} />
-            <PreviewBlock label="References" value={values.references} />
-            <div className="rounded-[1.25rem] border border-ink/10 bg-[#f5ecdf] p-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/45">
-                Mood words
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {values.moodWords.length > 0 ? (
-                  values.moodWords.map((word) => (
-                    <span
-                      key={word}
-                      className="rounded-full border border-ink/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/62"
-                    >
-                      {word}
-                    </span>
-                  ))
-                ) : (
-                  <span className="text-sm text-ink/50">No mood selected yet.</span>
-                )}
-              </div>
-            </div>
+          <div className="mt-6 grid gap-4">
+            <PreviewBlock
+              label="Primary audience"
+              value={normalized?.primaryAudience ?? "Waiting for a clear audience."}
+            />
+            <PreviewBlock
+              label="Feel qualities"
+              value={normalized?.feelQualities.join(", ") ?? "Waiting for feel selections."}
+            />
+            <PreviewBlock
+              label="Primary page action"
+              value={
+                normalized?.primaryPageAction ?? "Waiting for the page action decision."
+              }
+            />
           </div>
         </div>
 
@@ -268,9 +360,9 @@ export function SessionForm() {
             Output contract
           </p>
           <ul className="mt-4 grid gap-3 text-sm leading-6 text-paper/70">
-            <li>3 distinct creative territories</li>
-            <li>Visual signals, tone, motion, and typography guidance</li>
-            <li>A clear primary thesis to refine next</li>
+            <li>1 recommended direction with a structured brief</li>
+            <li>2 alternate directions with clear tradeoffs</li>
+            <li>Minimal loading and failure states in Milestone 1</li>
           </ul>
         </div>
       </motion.aside>
@@ -305,22 +397,81 @@ function Field({
   );
 }
 
-function PreviewBlock({ label, value }: { label: string; value?: string }) {
+function QuestionCard({
+  eyebrow,
+  title,
+  note,
+  error,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  note: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="grid gap-4 rounded-[1.75rem] border border-paper/10 bg-paper/[0.04] p-5">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-paper/45">
+            {eyebrow}
+          </p>
+          <h2 className="mt-3 font-display text-3xl leading-none tracking-[-0.04em]">
+            {title}
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-paper/62">{note}</p>
+        </div>
+        {error ? <span className="text-xs text-ember">{error}</span> : null}
+      </div>
+      {children}
+    </section>
+  );
+}
+
+function ChipRow({ children }: { children: React.ReactNode }) {
+  return <div className="flex flex-wrap gap-2">{children}</div>;
+}
+
+function SelectableChip({
+  active,
+  onClick,
+  label,
+}: {
+  active: boolean;
+  onClick: () => void;
+  label: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={cn(
+        "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.18em] transition",
+        active
+          ? "border-ember bg-ember text-ink"
+          : "border-paper/12 text-paper/72 hover:border-paper/30 hover:bg-paper/6 hover:text-paper",
+      )}
+    >
+      {label}
+    </button>
+  );
+}
+
+function PreviewBlock({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-[1.25rem] border border-ink/10 bg-[#f5ecdf] p-4">
       <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/45">{label}</p>
-      <p className="mt-3 text-sm leading-6 text-ink/70">
-        {value && value.trim().length > 0 ? value : "Still open. Muse will infer carefully."}
-      </p>
+      <p className="mt-3 text-sm leading-6 text-ink/70">{value}</p>
     </div>
   );
 }
 
 function inputClassName(error?: string) {
   return cn(
-    "w-full rounded-[1.35rem] border bg-paper/[0.04] px-4 py-3 text-sm leading-6 text-paper outline-none transition placeholder:text-paper/30",
+    "w-full rounded-[1.4rem] border bg-transparent px-4 py-3 text-sm leading-6 text-paper outline-none transition placeholder:text-paper/32",
     error
-      ? "border-ember/70 focus:border-ember"
+      ? "border-ember/60 focus:border-ember"
       : "border-paper/12 focus:border-paper/35",
   );
 }

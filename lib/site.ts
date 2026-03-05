@@ -2,42 +2,42 @@ export const siteCopy = {
   eyebrow: "Creative Direction Engine",
   title: "Shape the spark before it goes flat.",
   subtitle:
-    "Muse turns a rough idea, a few references, and a feeling into distinct creative territories you can compare, refine, and keep.",
+    "Muse turns a rough idea into one recommended direction and two alternates you can compare, refine, and carry forward.",
   ctaPrimary: "Build a Direction",
   ctaSecondary: "See the Flow",
 };
 
 export const territoryCards = [
   {
-    name: "Editorial Tension",
+    name: "Quiet Authority",
     summary:
-      "Refined serif rhythm, sharp contrast, and restrained motion for products that need authority without stiffness.",
-    signals: ["warm neutrals", "measured reveals", "high-contrast type"],
+      "A recommendation built around clarity, trust, and a premium sense of restraint for products that need immediate credibility.",
+    signals: ["clear hierarchy", "restrained contrast", "editorial calm"],
   },
   {
-    name: "Electric Warmth",
+    name: "Warm Precision",
     summary:
-      "Bold emotional color, tactile gradients, and inviting copy for launches that need energy without noise.",
-    signals: ["glowing accents", "elastic motion", "human voice"],
+      "A friendlier alternate that keeps structure intact while making the product feel more human and approachable.",
+    signals: ["welcoming tone", "open spacing", "softened contrast"],
   },
   {
-    name: "Modern Ritual",
+    name: "Sharp Momentum",
     summary:
-      "Calm composition, ceremonial pacing, and material textures for brands built around depth and trust.",
-    signals: ["ritual pacing", "quiet density", "subtle ornament"],
+      "A faster, more assertive alternate for products that need stronger energy and a sharper conversion posture.",
+    signals: ["tighter pacing", "stronger emphasis", "modern edge"],
   },
 ];
 
 export const productSteps = [
   {
     index: "01",
-    title: "Enter the spark",
-    body: "Start with a concept, audience, mood words, and optional visual references.",
+    title: "Start with the idea",
+    body: "Begin with one rough prompt, then answer three short follow-up questions Muse can sharpen.",
   },
   {
     index: "02",
-    title: "Compare territories",
-    body: "Muse develops three distinct directions instead of one average answer.",
+    title: "Review the recommendation",
+    body: "Muse develops one recommended direction plus two alternates instead of one average answer.",
   },
   {
     index: "03",

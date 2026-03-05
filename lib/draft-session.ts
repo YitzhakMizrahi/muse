@@ -1,19 +1,19 @@
 import { z } from "zod";
 
-import { sessionFormSchema, type SessionFormValues } from "@/lib/session";
+import { museSessionSchema, type MuseSessionValues } from "@/lib/session";
 
 const DRAFT_STORAGE_KEY = "muse-session-draft";
 const storedDraftSessionSchema = z.object({
-  version: z.literal(1),
+  version: z.literal(2),
   updatedAt: z.string().datetime(),
-  session: sessionFormSchema,
+  session: museSessionSchema,
 });
 
 type StoredDraftSession = z.infer<typeof storedDraftSessionSchema>;
 
-export function saveDraftSession(session: SessionFormValues) {
+export function saveDraftSession(session: MuseSessionValues) {
   const payload: StoredDraftSession = {
-    version: 1,
+    version: 2,
     updatedAt: new Date().toISOString(),
     session,
   };

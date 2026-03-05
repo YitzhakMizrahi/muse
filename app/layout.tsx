@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Muse",
   description:
-    "Creative Direction Engine for shaping rough sparks into visual and verbal territories.",
+    "Creative Direction Engine for turning a rough idea into one recommended direction and two clear alternates.",
 };
 
 export default function RootLayout({

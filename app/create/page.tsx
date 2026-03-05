@@ -11,15 +11,15 @@ export default function CreatePage() {
           <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <h1 className="font-display text-4xl leading-[0.94] tracking-[-0.04em] text-ink md:text-5xl">
-                Give the system a sharp beginning.
+                Give Muse a real starting point.
               </h1>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-ink/70 md:text-base">
-                The first pass should feel deliberate, not bureaucratic. We only ask
-                for enough to produce distinct territory options worth reacting to.
+                Milestone 1 is about proving the core loop: rough idea in, one
+                recommended direction out, plus two alternates worth comparing.
               </p>
             </div>
             <p className="max-w-sm font-mono text-[10px] uppercase tracking-[0.24em] text-ink/38">
-              Input light. Output structured. Taste stays human.
+              Input guided. Output structured. Taste stays human.
             </p>
           </div>
         </section>
