@@ -101,6 +101,29 @@ Purpose:
 - show first impression
 - communicate headline posture, hierarchy, mood, and CTA behavior
 
+Pulls from:
+
+- Core Thesis
+- What It Should Feel Like
+- Brand Tone
+- Typography Direction
+- Color Logic
+- CTA Strategy
+
+Must show:
+
+- one dominant headline
+- one supporting line
+- one primary CTA moment
+- the overall compositional posture of the page
+
+Must avoid:
+
+- trying to summarize the whole brief
+- too many secondary UI elements
+- generic SaaS hero tropes
+- decorative noise that weakens the read
+
 ### Section Rhythm Panel
 
 Purpose:
@@ -108,11 +131,54 @@ Purpose:
 - show how the landing page is paced after the hero
 - communicate section order, density, and narrative flow
 
+Pulls from:
+
+- Landing Page Narrative
+- Section-by-Section Landing Page Outline
+- Layout / Composition Guidance
+- What It Should Feel Like
+
+Must show:
+
+- section order
+- relative density or openness
+- how proof, value, and CTA moments are spaced
+- whether the page feels calm, tight, expansive, editorial, or product-heavy
+
+Must avoid:
+
+- becoming a wireframe spec
+- equal-weight boxes that flatten hierarchy
+- too much content detail
+- pretending to be final UI
+
 ### Style System Panel
 
 Purpose:
 
 - make typography, color, surfaces, and emphasis behavior legible at a glance
+
+Pulls from:
+
+- Visual Principles
+- Typography Direction
+- Color Logic
+- Brand Tone
+
+Must show:
+
+- headline and body type roles
+- color behavior
+- surface treatment
+- accent logic
+- component posture or UI temperament
+
+Must avoid:
+
+- raw palette dumps
+- exact implementation tokens
+- disconnected moodboard clutter
+- decorative styling without system logic
 
 ### Conversion Moment Panel
 
@@ -120,6 +186,37 @@ Purpose:
 
 - show how the page asks for action
 - communicate the emotional intensity and structure of the CTA moment
+
+Pulls from:
+
+- CTA Strategy
+- Brand Tone
+- Landing Page Narrative
+- What It Should Feel Like
+- What It Should Not Feel Like
+
+Must show:
+
+- primary CTA framing
+- emotional intensity of the ask
+- surrounding trust cues or reassurance
+- how the conversion moment fits the overall direction
+
+Must avoid:
+
+- generic CTA patterns without tone logic
+- aggressive urgency unless the brief truly calls for it
+- CTA styling that feels disconnected from the rest of the page
+- treating conversion as an afterthought
+
+### Panel System Rule
+
+All four panels together should:
+
+- make the direction feel immediate
+- make the system feel coherent
+- make the landing page feel plausible
+- stay directional rather than fully finalized
 
 ## Alternate Direction Shape
 

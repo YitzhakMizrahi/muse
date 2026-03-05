@@ -88,6 +88,13 @@ Leading visual panels:
 3. Style System Panel
 4. Conversion Moment Panel
 
+The panel set should:
+
+- make the direction feel immediate
+- make the system feel coherent
+- make the landing page feel plausible
+- stay directional rather than fully finalized
+
 It should include:
 
 1. direction name

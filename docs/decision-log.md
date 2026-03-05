@@ -199,3 +199,9 @@ Alternates should remain visually comparable, but in compressed form using a min
 
 Reason:
 Comparison should stay visual, but the alternates should not compete with the full recommended direction.
+
+### D-034
+Each of the four recommended visual panels should have an explicit content contract covering its purpose, the Direction Brief sections it pulls from, what it must show, and what it must avoid.
+
+Reason:
+The visual side of Muse needs to be as structured and controllable as the written artifact.
