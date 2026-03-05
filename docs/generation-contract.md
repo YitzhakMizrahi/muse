@@ -51,6 +51,13 @@ Generation must return:
 3. recommendation rationale
 4. export-ready artifact data
 
+The returned data should conform to stable product schemas for:
+
+- normalized session input
+- recommended direction output
+- alternate direction output
+- export payloads
+
 ## Recommended Direction Output
 
 The recommended direction must contain:
@@ -120,6 +127,7 @@ This means the output must keep separate fields for:
 - the recommended direction must be more developed than the alternates
 - the output must remain within Muse's defined product boundary
 - generation should produce direction systems, not pretend-final design files
+- all major objects should be renderable without inference-heavy UI logic
 
 ## Failure Rules
 
@@ -133,4 +141,3 @@ over:
 
 - silently fabricating partial output
 - collapsing into vague prose
-

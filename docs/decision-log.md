@@ -235,3 +235,9 @@ Generation must return one fully developed recommended direction, two lighter al
 
 Reason:
 Muse needs a stable generation contract so the recommendation, refinement, and export steps can all operate on the same structured output.
+
+### D-040
+Muse should use stable product schemas for normalized input, recommended direction output, alternate direction output, and export payloads.
+
+Reason:
+The product needs a renderable, refinable, and testable data model before implementation resumes.
