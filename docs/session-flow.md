@@ -149,6 +149,21 @@ Initial actions:
 - make it more experimental
 - make it more conversion-focused
 
+Refinement rules:
+
+- preserve the identity of the chosen direction
+- move it along one dimension at a time
+- do not regenerate a different concept unless the user explicitly switches directions
+- adjust expression more readily than strategy
+
+Refinement intent by action:
+
+- `Make It Bolder`: increase distinctiveness, confidence, and edge
+- `Make It Calmer`: reduce aggression and visual pressure while preserving clarity
+- `Make It More Premium`: increase perceived quality, taste, and intentionality
+- `Make It More Experimental`: increase surprise, originality, and visual risk without losing usability
+- `Make It More Conversion-Focused`: sharpen persuasion and signup-driving effectiveness without defaulting to sales-heavy behavior
+
 ### 8. Export / Handoff
 
 Muse should conclude with two exportable artifacts:

@@ -258,7 +258,143 @@ This keeps comparison visual without making the alternates compete with the full
 
 - 1 short paragraph or 2 short phrases
 - should describe overall visual posture and likely type/layout/color feel
-- avoid implementation detail
+
+## Refinement Behavior
+
+Refinement should preserve the identity of the chosen direction while moving it along one dimension at a time.
+
+It should not regenerate a totally different concept unless the user explicitly switches directions.
+
+### 1. Make It Bolder
+
+Goal:
+
+- increase distinctiveness, confidence, and edge
+
+May change:
+
+- What It Should Feel Like
+- Brand Tone
+- Visual Principles
+- Color Logic
+- CTA Strategy
+- panel emphasis and hierarchy posture
+
+Should stay stable:
+
+- core product idea
+- primary audience
+- Core Thesis
+- primary page action
+
+Shift strength:
+
+- noticeable, but still recognizably the same direction
+
+### 2. Make It Calmer
+
+Goal:
+
+- reduce noise, aggression, and visual pressure
+- increase restraint and clarity
+
+May change:
+
+- What It Should Feel Like
+- Brand Tone
+- Visual Principles
+- Layout / Composition Guidance
+- Color Logic
+- CTA intensity
+
+Should stay stable:
+
+- core product idea
+- audience
+- strategic fit
+- narrative purpose of the page
+
+Shift strength:
+
+- should feel quieter, not weaker
+
+### 3. Make It More Premium
+
+Goal:
+
+- increase perceived quality, taste, and intentionality
+
+May change:
+
+- Brand Tone
+- Typography Direction
+- Color Logic
+- Visual Principles
+- Layout / Composition Guidance
+- trust/proof treatment
+
+Should stay stable:
+
+- audience
+- primary action
+- core promise
+- overall strategic direction
+
+Shift strength:
+
+- should feel more refined, not more generic luxury-coded
+
+### 4. Make It More Experimental
+
+Goal:
+
+- increase surprise, originality, and visual risk
+
+May change:
+
+- What It Should Feel Like
+- Visual Principles
+- Layout / Composition Guidance
+- Typography Direction
+- Color Logic
+- section rhythm
+
+Should stay stable:
+
+- product idea
+- target audience
+- conversion intent
+- minimum clarity threshold
+
+Shift strength:
+
+- should push the concept, but not make it confusing or unusable
+
+### 5. Make It More Conversion-Focused
+
+Goal:
+
+- increase clarity, persuasion, and signup-driving effectiveness
+
+May change:
+
+- Landing Page Narrative
+- Section-by-Section Landing Page Outline
+- CTA Strategy
+- Brand Tone
+- proof/trust emphasis
+- hero messaging posture
+
+Should stay stable:
+
+- overall direction identity
+- audience
+- visual character unless needed to support conversion
+- core feel of the chosen direction
+
+Shift strength:
+
+- should feel sharper and more persuasive, not more salesy by default
 
 #### Why You'd Choose This Instead
 

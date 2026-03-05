@@ -205,3 +205,15 @@ Each of the four recommended visual panels should have an explicit content contr
 
 Reason:
 The visual side of Muse needs to be as structured and controllable as the written artifact.
+
+### D-035
+Refinement should preserve the identity of the chosen direction, move it along one dimension at a time, and avoid regenerating a totally different concept unless the user explicitly switches directions.
+
+Reason:
+Refinement should make a direction more usable and steerable without making the product output unstable or arbitrary.
+
+### D-036
+The first refinement actions are: Make It Bolder, Make It Calmer, Make It More Premium, Make It More Experimental, and Make It More Conversion-Focused, each with explicit rules for what may change and what should stay stable.
+
+Reason:
+Structured refinement keeps Muse specific and controllable, and avoids collapsing back into vague freeform iteration.
