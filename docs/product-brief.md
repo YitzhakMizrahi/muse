@@ -45,6 +45,17 @@ Muse should begin with:
 4. structured refinement actions
 5. export or handoff
 
+## Export Model
+
+Muse should conclude with two aligned artifacts:
+
+1. a polished Direction Brief document for humans
+2. an agent-ready handoff prompt for downstream execution
+
+The brief is the strategic artifact.
+
+The handoff prompt is the operational artifact.
+
 ## Recommendation Logic
 
 Muse should recommend one direction using:

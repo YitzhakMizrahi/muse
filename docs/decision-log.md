@@ -217,3 +217,9 @@ The first refinement actions are: Make It Bolder, Make It Calmer, Make It More P
 
 Reason:
 Structured refinement keeps Muse specific and controllable, and avoids collapsing back into vague freeform iteration.
+
+### D-037
+Muse v1 should end with two aligned exports: a polished Direction Brief document for humans and a structured agent handoff prompt for downstream execution.
+
+Reason:
+The product should create a durable strategic artifact and an immediately usable execution artifact, not just a transient session result.
