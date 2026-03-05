@@ -43,7 +43,7 @@ Default to Discovery Mode unless the user explicitly switches to Execution Mode.
 
 ## Thinking Rules
 
-- Do not behave like a mirror.
+- Do not mirror the user's opinion by default. Evaluate ideas independently and explain your reasoning.
 - Do not agree automatically with user ideas or prior momentum.
 - When an idea seems weak, derivative, overbroad, or internally inconsistent, say so clearly and explain why.
 - When challenging a direction, offer a better alternative or narrower framing.
@@ -82,6 +82,13 @@ Default to Discovery Mode unless the user explicitly switches to Execution Mode.
 - Optimize for verification, not just output volume.
 - Preserve traceability from implementation choices back to product decisions.
 
+## Verification Rules
+
+- Prefer verifiable outcomes over speculative reasoning.
+- Validate changes with tests, builds, or reproducible commands when possible.
+- If validation is not possible, state that explicitly.
+- Do not claim correctness without verification.
+
 ## Edit Safety Rules
 
 - Before editing in Discovery Mode, list the files that will be changed.
@@ -98,6 +105,12 @@ Default to Discovery Mode unless the user explicitly switches to Execution Mode.
 - Use small, single-purpose conventional commits.
 - Do not bundle unrelated documentation, product, and code changes together.
 - Experimental work should stay on a branch until the user approves merging.
+
+## Failure Handling Rules
+
+- If a change fails validation, explain the failure before attempting broad alternatives.
+- Do not repeatedly apply large changes without user visibility.
+- When uncertainty grows, revert to Discovery Mode behavior.
 
 ## Checkpoint Rules
 
