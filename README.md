@@ -1,26 +1,12 @@
 # Muse
 
-Muse is a Creative Direction Engine for turning rough ideas into structured visual and verbal direction.
+Muse is currently in documentation-first discovery.
 
-The product thesis is simple:
+The current product direction is:
 
-- people start with sparks, not finished briefs
-- AI should expand and organize creative thinking
-- human taste remains in control
-
-Instead of producing one generic answer, Muse is designed to generate distinct creative territories, make them comparable, and let the user refine a direction intentionally.
-
-## First Release
-
-The first end-to-end product loop is:
-
-1. Enter a concept, mood, audience, and optional references
-2. Generate three creative territories
-3. Compare them side by side
-4. Refine one with explicit taste controls
-5. Save the resulting artifact
-
-This is the narrowest version of the product that still proves the idea.
+- user: solo founders with an idea but no designer
+- pain: "I know what I want to build, but I do not know how it should look or feel."
+- v1 target: idea -> recommended Direction Brief for a branded landing page, plus alternates
 
 ## Stack
 
@@ -49,11 +35,15 @@ That means:
 
 The repo uses living documentation as project memory.
 
+- [docs/documentation-map.md](/home/unix/dev/gpt-5.4-codex/docs/documentation-map.md)
 - [docs/vision.md](/home/unix/dev/gpt-5.4-codex/docs/vision.md)
+- [docs/product-brief.md](/home/unix/dev/gpt-5.4-codex/docs/product-brief.md)
 - [docs/principles.md](/home/unix/dev/gpt-5.4-codex/docs/principles.md)
+- [docs/discovery-agenda.md](/home/unix/dev/gpt-5.4-codex/docs/discovery-agenda.md)
 - [docs/workflow.md](/home/unix/dev/gpt-5.4-codex/docs/workflow.md)
+- [docs/art-direction.md](/home/unix/dev/gpt-5.4-codex/docs/art-direction.md)
+- [docs/session-flow.md](/home/unix/dev/gpt-5.4-codex/docs/session-flow.md)
 - [docs/engineering-standards.md](/home/unix/dev/gpt-5.4-codex/docs/engineering-standards.md)
-- [docs/user-journey.md](/home/unix/dev/gpt-5.4-codex/docs/user-journey.md)
 - [docs/tech-stack.md](/home/unix/dev/gpt-5.4-codex/docs/tech-stack.md)
 - [docs/decision-log.md](/home/unix/dev/gpt-5.4-codex/docs/decision-log.md)
 - [docs/roadmap.md](/home/unix/dev/gpt-5.4-codex/docs/roadmap.md)
@@ -76,10 +66,10 @@ pnpm dev
 
 The repository currently includes:
 
-- foundation docs and project rules
-- first product workflow definition
-- stack decision
-- initial Next.js app shell
-- an authored landing page that establishes visual direction
+- existing exploratory app code
+- engineering standards and repo workflow
+- a reset toward documentation-first discovery
 
-The next stage is building the actual session flow for creating and refining creative directions.
+The next stage is not more coding.
+
+The next stage is settling product definition thoroughly before deciding what to keep, replace, or build next.

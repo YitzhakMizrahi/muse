@@ -1,59 +1,69 @@
 # Workflow
 
+## Current Mode
+
+Muse is currently in documentation-first discovery mode.
+
+That means the priority order is:
+
+1. discuss
+2. decide
+3. document
+4. only then implement
+
 ## Operating Model
 
-The user steers taste and feel.
+The user steers:
+
+- product intent
+- taste
+- ambition
+- final judgment
 
 The agent steers:
 
 - structure
-- execution
-- consistency
-- documentation
-- momentum
+- synthesis
+- documentation quality
+- option framing
+- keeping the process moving
 
 ## How Decisions Work
 
 When an important choice is made:
 
-1. implement it if appropriate
+1. write it down
 2. record it in `docs/decision-log.md`
-3. treat it as active policy going forward
+3. treat it as active policy
+4. do not re-open it casually
 
-## When To Ask
+## Default Behavior
 
-Ask only when a decision changes one of these:
+Until further notice:
 
-- aesthetic direction
-- product ambition
-- core workflow
-- technical strategy with meaningful tradeoffs
+- prefer questions over coding
+- prefer structured options over vague brainstorming
+- prefer durable docs over ephemeral chat conclusions
 
-Do not ask for approval on low-level implementation choices.
+## When To Code
 
-## Iteration Loop
+Code only after one of these is true:
 
-1. propose or build the next meaningful step
-2. gather user reaction where taste matters
-3. update docs with anything learned
-4. refine or continue
-
-## Quality Bar
-
-Each iteration must improve at least one of:
-
-- clarity
-- beauty
-- distinctiveness
-- capability
+- the relevant product area is specified clearly enough
+- the user explicitly asks to prototype despite unresolved questions
+- the implementation is purely in service of exploration and is treated as disposable
 
 ## Definition Of Progress
 
-Progress is not adding features.
+Progress is:
 
-Progress means the product becomes more:
+- sharper product definition
+- fewer ambiguities
+- better-organized decisions
+- stronger shared standards
 
-- coherent
-- compelling
-- usable
-- memorable
+Not:
+
+- more files
+- more UI
+- more features
