@@ -68,6 +68,14 @@ Muse generates:
 - one recommended Direction Brief
 - two alternate directions
 
+Generation rules:
+
+- generation should operate on normalized session input, not raw prompt text alone
+- output should be structured and renderable, not loose prose
+- the recommended direction should be more fully developed than the alternates
+- all outputs should preserve enough structure for refinement and export
+- failure states should prefer explicit retry or recovery over partial fabricated output
+
 The recommendation should be based primarily on:
 
 - strategic fit

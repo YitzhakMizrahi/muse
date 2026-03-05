@@ -18,6 +18,7 @@
 - `docs/art-direction.md`
 - `docs/direction-brief-spec.md`
 - `docs/export-artifact-spec.md`
+- `docs/generation-contract.md`
 - `docs/session-flow.md`
 - `docs/screen-map.md`
 

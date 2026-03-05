@@ -223,3 +223,15 @@ Muse v1 should end with two aligned exports: a polished Direction Brief document
 
 Reason:
 The product should create a durable strategic artifact and an immediately usable execution artifact, not just a transient session result.
+
+### D-038
+Muse generation should operate on normalized session input and return structured, renderable, refinable, and exportable output rather than loose prose.
+
+Reason:
+The product value depends on durable, controllable artifacts, not ad hoc text generation.
+
+### D-039
+Generation must return one fully developed recommended direction, two lighter alternates, recommendation rationale, and export-ready artifact data.
+
+Reason:
+Muse needs a stable generation contract so the recommendation, refinement, and export steps can all operate on the same structured output.
