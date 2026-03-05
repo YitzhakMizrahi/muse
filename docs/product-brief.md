@@ -78,9 +78,36 @@ Each lighter alternate should include:
 
 1. direction name
 2. one-line thesis
-3. tone
+3. what it feels like
 4. visual character
 5. why a user might choose it instead
+
+Rules:
+
+- quick-scan only
+- strategically distinct from the recommended direction
+- enough to compare, not enough to replace the full brief
+- should fit comfortably in one panel or card
+
+### Alternate Section Rules
+
+#### What It Feels Like
+
+- 3 concise qualities
+- not prose
+- easy to compare across alternates
+
+#### Visual Character
+
+- 1 short paragraph or 2 short phrases
+- should describe overall visual posture and likely type/layout/color feel
+- avoid implementation detail
+
+#### Why You'd Choose This Instead
+
+- 1 to 2 sentences
+- must explain when this direction is the better choice than the recommended one
+- should frame the tradeoff clearly
 
 ## Follow-Up Questions
 
@@ -96,6 +123,68 @@ Suggested answers should be:
 - dynamically recommended based on the initial prompt
 - always overridable by the user
 
+### Question Behavior
+
+#### Question 1: Who is this mainly for?
+
+- single-select by default
+- custom input always available
+- Muse should push toward one primary audience
+
+#### Question 2: How should it feel when someone lands on it?
+
+- multi-select
+- cap at 2 to 3 qualities
+- custom input always available
+- Muse may recommend likely fits, but should usually still ask directly
+
+#### Question 3: What should the page get people to do first?
+
+- single-select
+- custom input always available
+- Muse should force one main action for v1
+
+### Confidence Rules
+
+Muse may prefill an answer only when:
+
+1. the signal is strong in the initial prompt
+2. the inferred answer materially fits the prompt
+3. the user can see and change it immediately
+
+If those conditions are weak, Muse should ask explicitly.
+
+#### Audience Confidence
+
+- prefill often when audience is explicit or strongly implied
+- ask when multiple plausible audiences exist
+
+#### Feel Confidence
+
+- be conservative
+- recommend likely fits
+- usually still ask directly because this is the highest-taste question
+
+#### Primary Action Confidence
+
+- prefill when the prompt strongly signals a dominant conversion goal
+- ask when the goal is ambiguous or materially affects the narrative
+
+### Communication Rule
+
+Muse should communicate inference simply rather than pretending precise confidence scoring.
+
+Good behavior:
+
+- show the inferred answer
+- make it editable
+- use plain language like "I pulled a likely answer from your prompt"
+
+Avoid:
+
+- fake numerical confidence
+- opaque hidden inference
+
 ## Refinement Model
 
 Muse should start with structured refinement actions rather than reopening into freeform chat immediately.
@@ -107,6 +196,50 @@ The first refinement set should likely include:
 - make it more premium
 - make it more experimental
 - make it more conversion-focused
+
+## Agent Handoff Prompt
+
+Muse should end with a structured execution prompt rather than a loose prose export.
+
+The handoff prompt should contain:
+
+1. objective
+2. direction summary
+3. execution requirements
+4. things to avoid
+
+### Objective
+
+- one clear instruction
+- no ambiguity about the output target
+
+### Direction Summary
+
+- compress the recommended brief into the highest-leverage execution inputs
+- preserve the direction faithfully without dumping the entire brief
+
+### Execution Requirements
+
+- required sections
+- conversion goal
+- desired hierarchy
+- tone and visual behavior
+- output expectations
+
+### Things To Avoid
+
+- visual anti-patterns
+- tonal anti-patterns
+- structural anti-patterns
+
+## Downstream Agent Target
+
+The first handoff target should be a code-capable design/build agent that produces:
+
+1. an implementation plan
+2. a page structure
+3. design execution aligned to the brief
+4. a branded landing page implementation or component plan
 
 ## Open Questions
 

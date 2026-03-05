@@ -139,3 +139,39 @@ The Direction Brief spec is now the active definition of Muse's core artifact, i
 
 Reason:
 The product now has enough clarity to define the artifact in operational terms before further specification or implementation.
+
+### D-024
+Each alternate direction should be lighter than the recommended brief and should include a name, one-line thesis, what it feels like, visual character, and why a user might choose it instead.
+
+Reason:
+Alternates are comparison tools, not competing full briefs.
+
+### D-025
+The agent handoff output should be a structured build brief with objective, direction summary, execution requirements, and things to avoid.
+
+Reason:
+Muse should produce an execution-ready prompt, not a loose prose export.
+
+### D-026
+The first downstream handoff target is a code-capable design/build agent producing a branded landing page implementation aligned to the Direction Brief.
+
+Reason:
+This is the clearest and most immediate execution target for Muse v1.
+
+### D-027
+The adaptive question model should use single-select for audience, multi-select up to three qualities for feel, and single-select for primary page action, with custom input always available.
+
+Reason:
+This keeps the questions guided and low-friction while preserving flexibility.
+
+### D-028
+Muse should prefill only when the signal is strong, the inferred answer materially fits, and the user can see and override it immediately.
+
+Reason:
+Adaptive behavior should feel smart and legible, not opaque or overconfident.
+
+### D-029
+Muse should be most conservative when inferring the desired feel; it may recommend likely fits but should usually still ask that question directly.
+
+Reason:
+Feel is the highest-taste input and the cost of getting it wrong is high.

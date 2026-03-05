@@ -53,6 +53,13 @@ Rules:
 - ask when confidence is low
 - always allow override
 - provide suggested options plus custom input
+- prefer visible prefills over invisible skipping
+
+Question behavior:
+
+- audience: single-select, prefill often, ask when ambiguous
+- feel: multi-select up to 3, recommend likely fits, usually still ask
+- primary action: single-select, prefill when obvious, ask when ambiguous
 
 ### 4. Generation
 
@@ -101,9 +108,15 @@ Each alternate should include:
 
 1. direction name
 2. one-line thesis
-3. tone
+3. what it feels like
 4. visual character
 5. why a user might choose it instead
+
+Rules:
+
+- each alternate should be strategically distinct
+- each alternate should be fast to compare
+- each alternate should make the tradeoff legible
 
 ### 7. Refinement
 
@@ -123,6 +136,13 @@ Muse should conclude with two exportable artifacts:
 
 1. polished Direction Brief document
 2. agent-ready prompt for a design/build agent creating a branded landing page
+
+The first downstream target should be a code-capable design/build agent that returns:
+
+1. implementation plan
+2. page structure
+3. design execution aligned to the brief
+4. landing page implementation or component plan
 
 ## Experience Requirements
 
