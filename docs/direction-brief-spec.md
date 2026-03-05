@@ -9,7 +9,66 @@ It must be useful to:
 - a solo founder trying to understand what their product should feel like
 - a downstream design or build agent trying to execute the direction coherently
 
-## Structure
+## Output Density Model
+
+The recommended Direction Brief should use four density tiers:
+
+### Micro
+
+Use for:
+
+- Direction Name
+- What It Should Feel Like
+- What It Should Not Feel Like
+
+Rules:
+
+- very fast to scan
+- usually a short label or 3 to 5 concise qualities
+
+### Short
+
+Use for:
+
+- Core Thesis
+- Who It Should Resonate With
+
+Rules:
+
+- 1 to 2 sentences max
+- preferably 1 strong sentence when possible
+
+### Compact Prose
+
+Use for:
+
+- Brand Tone
+- Landing Page Narrative
+- Why This Direction Is Recommended
+
+Rules:
+
+- short paragraph length
+- enough explanation to create trust
+- not long-form essay writing
+
+### Structured Bullets
+
+Use for:
+
+- Visual Principles
+- Typography Direction
+- Color Logic
+- Layout / Composition Guidance
+- Section-by-Section Landing Page Outline
+- CTA Strategy
+- Anti-Patterns
+
+Rules:
+
+- operational and easy to scan
+- suitable for downstream execution
+- should prefer bullets or clearly separated points over dense prose
 
 ### 1. Direction Name
 
@@ -161,6 +220,7 @@ Rules:
 - define the purpose of each section
 - define the content role of each section
 - define how each section should feel
+- prefer a repeatable per-section structure instead of freeform paragraphs
 
 ### 13. CTA Strategy
 
@@ -174,6 +234,7 @@ Rules:
 - describe the tone of the ask
 - describe the level of urgency
 - describe what the CTA should not sound like
+- prefer concise structured bullets over paragraph form
 
 ### 14. Anti-Patterns
 
@@ -214,3 +275,5 @@ Rules:
 The recommended Direction Brief should be fully developed.
 
 The two alternates should be lighter and faster to compare.
+
+The brief should feel substantial without becoming bloated.
