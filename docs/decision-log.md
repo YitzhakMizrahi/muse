@@ -253,3 +253,9 @@ Muse implementation should proceed in milestones: core session loop, refinement 
 
 Reason:
 The product is now specified enough to move forward, but implementation should still prove one layer at a time instead of collapsing strategy, UX, and hardening into one phase.
+
+### D-043
+Muse v1 should assume Vercel as the default deployment target, local/preview/production as the environment model, and should not block implementation on Dockerization.
+
+Reason:
+The project needs coherent runtime assumptions now, but Docker and heavier infrastructure would add complexity before they solve a real bottleneck.

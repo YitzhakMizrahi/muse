@@ -28,6 +28,7 @@
 ## Engineering
 
 - `docs/architecture.md`
+- `docs/deployment-and-env.md`
 - `docs/engineering-standards.md`
 - `docs/production-standards.md`
 - `docs/testing-strategy.md`
