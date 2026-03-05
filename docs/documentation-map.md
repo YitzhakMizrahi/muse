@@ -16,6 +16,7 @@
 ## Experience
 
 - `docs/art-direction.md`
+- `docs/direction-brief-spec.md`
 - `docs/session-flow.md`
 
 ## Engineering

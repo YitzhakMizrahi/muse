@@ -133,3 +133,9 @@ The three follow-up questions should be adaptive: Muse may infer, ask, prefill, 
 
 Reason:
 The experience should feel intelligent and low-friction rather than rigid or bureaucratic.
+
+### D-023
+The Direction Brief spec is now the active definition of Muse's core artifact, including its section structure and writing rules.
+
+Reason:
+The product now has enough clarity to define the artifact in operational terms before further specification or implementation.
