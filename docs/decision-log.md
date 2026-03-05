@@ -73,3 +73,63 @@ Current implementation boundaries were tightened to align with the new standards
 
 Reason:
 Early production-minded discipline is more valuable now than retrofitting these boundaries after the codebase grows.
+
+### D-013
+The product direction has shifted from a generic creative direction engine toward a narrower first release: helping solo founders turn an idea into brand + landing page concepts.
+
+Reason:
+The clarified user and problem are stronger than the earlier broader framing.
+
+### D-014
+The project workflow is now documentation-first discovery, and further coding should pause until the product definition is better specified.
+
+Reason:
+The team concluded that implementation outran product thinking and that decisions should be covered more thoroughly in docs first.
+
+### D-015
+Muse v1 should produce one recommended Direction Brief plus two lighter alternates, rather than three equally developed outputs.
+
+Reason:
+The user should leave with momentum and a recommended direction, not just more decisions.
+
+### D-016
+Muse should start with one smart prompt box followed by three short follow-up questions.
+
+Reason:
+This keeps the experience approachable while still extracting the signals needed for a strong creative direction.
+
+### D-017
+The first three follow-up questions should cover audience, desired feel, and the primary landing page action.
+
+Reason:
+These are the highest-leverage inputs for producing a strategically useful direction.
+
+### D-018
+Muse should recommend a direction using a blend of strategic fit, conversion potential, and aesthetic distinctiveness, weighted primarily toward strategic fit.
+
+Reason:
+The best direction should be the one most aligned with the product and audience, not merely the prettiest or safest.
+
+### D-019
+The first refinement model should use structured actions instead of reopening immediately into generic freeform chat.
+
+Reason:
+Structured refinement preserves product specificity and avoids collapsing back into plain LLM behavior.
+
+### D-020
+Muse should end a successful session with two exportable artifacts: a polished Direction Brief document and an agent-ready prompt for a design/build agent.
+
+Reason:
+The product should create value for both human readers and downstream AI execution.
+
+### D-021
+The first agent handoff target is a branded landing page optimized for signup conversion.
+
+Reason:
+This is the clearest and most immediate downstream use case for the v1 artifact.
+
+### D-022
+The three follow-up questions should be adaptive: Muse may infer, ask, prefill, and always allow the user to override.
+
+Reason:
+The experience should feel intelligent and low-friction rather than rigid or bureaucratic.

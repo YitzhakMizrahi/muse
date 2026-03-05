@@ -1,74 +1,75 @@
 # Muse
 
-Working name for a Creative Direction Engine that helps a person turn rough ideas into a coherent visual and verbal direction.
+Muse is a product-in-discovery.
+
+Its current direction is:
+
+- primary user: solo founders with an idea but no designer
+- primary pain: "I know what I want to build, but I do not know how it should look or feel."
+- first artifact target: brand + landing page concept
 
 ## Purpose
 
-Build a portfolio-grade product that feels beautiful, ambitious, and AI-native without collapsing into a generic chat wrapper.
+Build a flagship portfolio product that turns a rough startup idea into multiple branded landing page concepts with clear rationale and handoff potential.
 
 ## Product Thesis
 
-AI should behave like a sharp creative partner:
+Muse should help translate:
 
-- expands possibilities
-- organizes ambiguity
-- surfaces strong directions
-- keeps the human in control of taste
+- idea into positioning
+- intention into visual direction
+- product concept into branded landing page options
 
-The product should scale human intuition, not replace it.
+AI should accelerate early-stage design thinking without removing human judgment.
 
-## What The Product Does
+## Current Product Direction
 
-A user brings a vague concept, reference images, screenshots, notes, or a product idea.
+For version 1, Muse should help a solo founder go from:
 
-The system helps them develop:
+- vague product idea
 
-- creative territories
-- visual language
-- copy direction
-- tone and mood
-- motion and interaction ideas
-- structured artifacts they can refine and share
+to:
+
+- a sharper product framing
+- a clearer brand tone
+- multiple landing page concept options
+- enough rationale to choose a direction and build from it
 
 ## Portfolio Signal
 
 This project should communicate:
 
-- strong product taste
-- polished frontend craft
-- disciplined system design
-- thoughtful AI integration
-- ability to turn ambiguous creative work into a usable workflow
+- strong product framing
+- mature taste and UX judgment
+- thoughtful use of AI in a high-leverage creative workflow
+- disciplined engineering and documentation habits
 
 ## Success Criteria
 
-The first usable version should:
+The eventual first usable version should:
 
-- feel distinct within 10 seconds
-- make AI output feel curated rather than random
-- show a clear human-in-the-loop workflow
-- produce artifacts worth saving or sharing
-- demonstrate enough technical depth to stand as a serious portfolio piece
+- be understandable in seconds
+- make the founder feel less stuck and more directed
+- produce multiple concept directions that feel distinct
+- create artifacts worth handing to designers, builders, or downstream agents
+- hold up under technical inspection
 
 ## Quality Ambition
 
-This project is intended to be a flagship portfolio piece.
+The project standard is flagship quality, not demo quality.
 
-That means the standard is not "works well enough".
+That means:
 
-The standard is:
-
-- visually memorable on first contact
-- structurally coherent under inspection
-- technically disciplined in implementation
-- refined enough that rough edges do not distract from the idea
-- opinionated enough to feel authored rather than assembled
+- clear product thinking
+- explicit design intent
+- strong documentation
+- careful implementation only after major decisions are settled
 
 ## Non-Goals
 
 For now, do not optimize for:
 
-- broad enterprise workflows
-- generic team productivity features
-- maximizing feature count
-- replacing designers or strategists
+- serving every user segment at once
+- replacing the full role of a designer
+- generic team collaboration surfaces
+- building features before the product definition is stable

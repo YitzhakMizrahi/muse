@@ -1,30 +1,35 @@
 # Roadmap
 
-## Phase 1: Foundation
+## Phase 1: Discovery
 
-- define product shape
-- define first user workflow
-- define visual direction
-- choose stack
-- create initial app shell
+- define the v1 artifact precisely
+- define the primary user and pain clearly
+- define the session model
+- define the output model
+- define visual and content direction
+- document non-goals and scope boundaries
 
-## Phase 2: Core Experience
+## Phase 2: Product Specification
 
-- build the main input experience
-- build creative direction generation flow
-- build structured output views
-- support refinement and comparison
+- write screen map
+- define user flow end to end
+- define artifact structure
+- define recommendation logic
+- define handoff expectations
 
-## Phase 3: Polish
+## Phase 3: Build Planning
 
-- improve motion, states, and responsiveness
-- strengthen output quality and guardrails
-- add artifact persistence
-- tighten visual identity
+- validate technical approach
+- confirm architecture and testing plan
+- convert product decisions into implementation milestones
 
-## Phase 4: Portfolio Readiness
+## Phase 4: Implementation
 
-- sharpen case-study narrative
-- validate technical quality
-- document architecture and AI workflow
-- prepare demo-ready seed content
+- build only after the specification is coherent enough
+- keep code aligned with the documented product
+
+## Phase 5: Portfolio Readiness
+
+- sharpen narrative
+- validate quality
+- prepare demo flow
