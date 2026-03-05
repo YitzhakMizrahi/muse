@@ -175,3 +175,9 @@ Muse should be most conservative when inferring the desired feel; it may recomme
 
 Reason:
 Feel is the highest-taste input and the cost of getting it wrong is high.
+
+### D-030
+The Muse v1 experience is now defined as a seven-step screen/state flow: entry, follow-up questions, generation, recommended brief, alternate comparison, refinement, and export/handoff.
+
+Reason:
+The product is now specified enough to define the concrete session surfaces before implementation resumes.
