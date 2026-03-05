@@ -11,6 +11,7 @@
 
 - `docs/workflow.md`
 - `docs/decision-log.md`
+- `docs/audit-framework.md`
 - `docs/implementation-plan.md`
 - `docs/roadmap.md`
 

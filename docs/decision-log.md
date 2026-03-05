@@ -259,3 +259,9 @@ Muse v1 should assume Vercel as the default deployment target, local/preview/pro
 
 Reason:
 The project needs coherent runtime assumptions now, but Docker and heavier infrastructure would add complexity before they solve a real bottleneck.
+
+### D-044
+Muse should be audited through distinct product, output quality, UX, visual, and engineering audit layers at milestone boundaries.
+
+Reason:
+The project should not rely only on intuition or feature progress; each milestone should be reviewed against explicit quality lenses.
