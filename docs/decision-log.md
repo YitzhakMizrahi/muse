@@ -247,3 +247,9 @@ Muse should define explicit session, loading, failure, and recovery states, and 
 
 Reason:
 The product needs predictable behavior and recovery paths before implementation resumes.
+
+### D-042
+Muse implementation should proceed in milestones: core session loop, refinement and export, visual direction layer, and production hardening.
+
+Reason:
+The product is now specified enough to move forward, but implementation should still prove one layer at a time instead of collapsing strategy, UX, and hardening into one phase.
