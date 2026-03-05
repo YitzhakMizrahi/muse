@@ -194,3 +194,24 @@ The session should feel:
 - intelligent, not mysterious
 - taste-aware, not overly technical
 - useful to both a human founder and a downstream agent
+
+## State Principles
+
+The Muse session should define explicit states for:
+
+- idle
+- drafting
+- ready to generate
+- generating
+- generated
+- refining
+- export ready
+
+And explicit failure states for:
+
+- input failure
+- generation failure
+- refinement failure
+- export failure
+
+The system should preserve the last valid artifact whenever possible rather than forcing a full restart.

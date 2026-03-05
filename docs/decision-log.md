@@ -241,3 +241,9 @@ Muse should use stable product schemas for normalized input, recommended directi
 
 Reason:
 The product needs a renderable, refinable, and testable data model before implementation resumes.
+
+### D-041
+Muse should define explicit session, loading, failure, and recovery states, and should preserve the last valid artifact whenever possible.
+
+Reason:
+The product needs predictable behavior and recovery paths before implementation resumes.

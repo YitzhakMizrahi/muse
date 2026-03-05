@@ -20,6 +20,7 @@
 - `docs/export-artifact-spec.md`
 - `docs/generation-contract.md`
 - `docs/schema-spec.md`
+- `docs/state-model.md`
 - `docs/session-flow.md`
 - `docs/screen-map.md`
 
