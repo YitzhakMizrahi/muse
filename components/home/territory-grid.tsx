@@ -6,11 +6,11 @@ export function TerritoryGrid() {
       {territoryCards.map((territory, index) => (
         <article
           key={territory.name}
-          className="group rounded-[1.75rem] border border-ink/10 bg-paper/60 p-6 transition hover:-translate-y-1 hover:border-ink/20 hover:bg-paper/80"
+          className="group rounded-[1.75rem] border border-ink/10 bg-paper/70 p-6 transition hover:-translate-y-1 hover:border-ink/20 hover:bg-paper/90"
         >
           <div className="flex items-center justify-between">
             <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-ink/45">
-              Territory {index + 1}
+              {index === 0 ? "Recommended" : `Alternate ${index}`}
             </p>
             <div className="h-2 w-2 rounded-full bg-ember/70 transition group-hover:bg-olive" />
           </div>

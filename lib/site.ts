@@ -1,10 +1,10 @@
 export const siteCopy = {
   eyebrow: "Creative Direction Engine",
-  title: "Shape the spark before it goes flat.",
+  title: "Shape the spark before it turns into generic output.",
   subtitle:
-    "Muse turns a rough idea into one recommended direction and two alternates you can compare, refine, and carry forward.",
-  ctaPrimary: "Build a Direction",
-  ctaSecondary: "See the Flow",
+    "Muse turns a rough idea into one recommended direction brief and two credible alternates you can compare, refine, and hand off.",
+  ctaPrimary: "Start a Direction",
+  ctaSecondary: "Go to the Flow",
 };
 
 export const territoryCards = [

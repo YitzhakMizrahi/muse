@@ -110,13 +110,13 @@ export function SessionForm() {
 
   return (
     <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-      <section className="rounded-[2rem] border border-paper/10 bg-ink px-5 py-6 text-paper shadow-halo md:px-7 md:py-8">
+      <section className="rounded-[2rem] border border-paper/10 bg-ink px-4 py-5 text-paper shadow-halo md:px-7 md:py-8">
         <div className="flex items-start justify-between gap-4 border-b border-paper/10 pb-5">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-paper/45">
               Step 01
             </p>
-            <h1 className="mt-3 font-display text-4xl leading-[0.94] tracking-[-0.04em] md:text-5xl">
+            <h1 className="mt-3 font-display text-[2.55rem] leading-[0.9] tracking-[-0.05em] md:text-5xl">
               Start with the rough idea.
             </h1>
           </div>
@@ -129,20 +129,20 @@ export function SessionForm() {
           </Link>
         </div>
 
-        <p className="mt-5 max-w-2xl text-sm leading-6 text-paper/70 md:text-base">
+        <p className="mt-4 max-w-2xl text-sm leading-6 text-paper/70 md:mt-5 md:text-base">
           Muse starts from your rough language, then sharpens it with a few guided
           decisions. The point is not to fill a form. The point is to give the system
           enough signal to recommend a direction worth building on.
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="mt-5 flex flex-wrap gap-2">
           <ProgressPill active label="Prompt" />
           <ProgressPill active={promptReady} label="Audience" />
           <ProgressPill active={promptReady && audienceReady} label="Feel" />
           <ProgressPill active={promptReady && audienceReady && feelsReady} label="Action" />
         </div>
 
-        <form className="mt-8 grid gap-6" onSubmit={handleSubmit} noValidate>
+        <form className="mt-6 grid gap-5 md:mt-8 md:gap-6" onSubmit={handleSubmit} noValidate>
           <Field
             label="The rough idea"
             hint="Describe what you are building in plain language. Include who it is for or what should feel different if you know."
@@ -252,7 +252,7 @@ export function SessionForm() {
           ) : null}
 
           {promptReady && audienceReady && feelsReady ? (
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3 md:gap-6">
               <Field
                 label="References"
                 hint="Optional scenes, products, or brands."
@@ -310,7 +310,7 @@ export function SessionForm() {
             </div>
           ) : null}
 
-          <div className="flex flex-col gap-3 border-t border-paper/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 border-t border-paper/10 pt-5 sm:flex-row sm:items-center sm:justify-between md:pt-6">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-paper/42">
                 Next
@@ -331,17 +331,17 @@ export function SessionForm() {
       </section>
 
       <motion.aside
-        initial={{ opacity: 0, y: 18 }}
+        initial={{ opacity: 0.94, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
-        className="rounded-[2rem] border border-ink/10 bg-[#eee3d4] px-5 py-6 md:px-7 md:py-8 xl:sticky xl:top-6 xl:self-start"
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="rounded-[2rem] border border-ink/10 bg-[#eee3d4] px-4 py-5 md:px-7 md:py-8 xl:sticky xl:top-6 xl:self-start"
       >
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink/42">
           Normalized Session
         </p>
 
-        <div className="mt-6 rounded-[1.75rem] border border-ink/10 bg-paper/80 p-5">
-          <p className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
+        <div className="mt-5 rounded-[1.75rem] border border-ink/10 bg-paper/80 p-4 md:mt-6 md:p-5">
+          <p className="font-display text-[1.85rem] leading-none tracking-[-0.04em] text-ink md:text-3xl">
             {normalized?.productSummary ?? "Muse will summarize the idea here."}
           </p>
           <p className="mt-4 text-sm leading-6 text-ink/62">
@@ -365,7 +365,7 @@ export function SessionForm() {
           </div>
         </div>
 
-        <div className="mt-5 rounded-[1.75rem] border border-ink/10 bg-ink px-5 py-5 text-paper">
+        <div className="mt-4 rounded-[1.75rem] border border-ink/10 bg-ink px-4 py-4 text-paper md:mt-5 md:px-5 md:py-5">
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-paper/42">
             Output contract
           </p>
@@ -421,13 +421,13 @@ function QuestionCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="grid gap-4 rounded-[1.75rem] border border-paper/10 bg-paper/[0.05] p-5">
+    <section className="grid gap-4 rounded-[1.5rem] border border-paper/10 bg-paper/[0.05] p-4 md:rounded-[1.75rem] md:p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-paper/45">
             {eyebrow}
           </p>
-          <h2 className="mt-3 font-display text-3xl leading-none tracking-[-0.04em]">
+          <h2 className="mt-3 font-display text-[2rem] leading-none tracking-[-0.04em] md:text-3xl">
             {title}
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-paper/62">{note}</p>
