@@ -95,31 +95,52 @@ export function DirectionResults() {
 
       <section className="grid gap-4 xl:grid-cols-[1.08fr_0.92fr]">
         <article className="rounded-[2rem] border border-paper/10 bg-ink p-6 text-paper shadow-halo md:p-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-paper/45">
-            Recommended Direction
-          </p>
-          <h2 className="mt-5 font-display text-4xl leading-[0.92] tracking-[-0.04em] md:text-5xl">
-            {recommended.directionIdentity.name}
-          </h2>
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-paper/45">
+                Recommended Direction
+              </p>
+              <h2 className="mt-5 font-display text-4xl leading-[0.92] tracking-[-0.04em] md:text-5xl">
+                {recommended.directionIdentity.name}
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {recommended.brief.feelLike.slice(0, 3).map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-paper/12 bg-paper/[0.05] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/62"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
           <p className="mt-5 max-w-3xl text-base leading-7 text-paper/74">
             {recommended.directionIdentity.coreThesis}
           </p>
 
-          <div className="mt-6 rounded-[1.5rem] border border-paper/10 bg-paper/[0.04] p-5">
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-paper/42">
-              Why this direction
-            </p>
-            <p className="mt-3 text-sm leading-6 text-paper/72">
-              {result.recommendationRationale}
-            </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
+            <div className="rounded-[1.5rem] border border-paper/10 bg-paper/[0.04] p-5">
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-paper/42">
+                Why this direction
+              </p>
+              <p className="mt-3 text-sm leading-6 text-paper/72">
+                {result.recommendationRationale}
+              </p>
+            </div>
+            <div className="rounded-[1.5rem] border border-paper/10 bg-paper/[0.04] p-5">
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-paper/42">
+                Resonates with
+              </p>
+              <p className="mt-3 text-sm leading-6 text-paper/72">
+                {recommended.brief.whoItShouldResonateWith}
+              </p>
+            </div>
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <PanelCard
-              title="Hero Panel"
-              body={recommended.visualPanels.heroPanel}
-              dark
-            />
+            <PanelCard title="Hero Panel" body={recommended.visualPanels.heroPanel} dark />
             <PanelCard
               title="Section Rhythm"
               body={recommended.visualPanels.sectionRhythmPanel}
@@ -138,7 +159,7 @@ export function DirectionResults() {
           </div>
         </article>
 
-        <aside className="grid gap-4">
+        <aside className="grid gap-4 xl:sticky xl:top-6 xl:self-start">
           <section className="rounded-[2rem] border border-ink/10 bg-[#ece0d1] p-6 md:p-7">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/42">
               Normalized Input
@@ -146,25 +167,31 @@ export function DirectionResults() {
             <dl className="mt-5 grid gap-4">
               <MetaRow label="Product Summary" value={result.normalizedInput.productSummary} />
               <MetaRow label="Audience" value={result.normalizedInput.primaryAudience} />
-              <MetaRow
-                label="Feel"
-                value={result.normalizedInput.feelQualities.join(", ")}
-              />
+              <MetaRow label="Feel" value={result.normalizedInput.feelQualities.join(", ")} />
               <MetaRow
                 label="Primary Action"
                 value={result.normalizedInput.primaryPageAction}
               />
             </dl>
-            {draft.references ? <MetaRow className="mt-4" label="References" value={draft.references} /> : null}
+            {draft.references ? (
+              <MetaRow className="mt-4" label="References" value={draft.references} />
+            ) : null}
             {draft.antiPreferences ? (
               <MetaRow className="mt-4" label="Avoid" value={draft.antiPreferences} />
             ) : null}
           </section>
 
           <section className="rounded-[2rem] border border-ink/10 bg-paper/80 p-6 md:p-7">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/42">
-              Direction Brief
-            </p>
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/42">
+                  Direction Brief
+                </p>
+                <p className="mt-3 text-sm leading-6 text-ink/66">
+                  The written artifact that explains and preserves the recommendation.
+                </p>
+              </div>
+            </div>
             <div className="mt-5 grid gap-4">
               <BulletList label="Feels like" items={recommended.brief.feelLike} />
               <BulletList label="Should not feel like" items={recommended.brief.notFeelLike} />
@@ -187,21 +214,39 @@ export function DirectionResults() {
 
       <section className="grid gap-4 xl:grid-cols-[1.08fr_0.92fr]">
         <article className="rounded-[2rem] border border-ink/10 bg-paper/80 p-6 md:p-7">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/42">
-            Section Outline
-          </p>
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/42">
+                Section Outline
+              </p>
+              <h3 className="mt-4 font-display text-4xl leading-none tracking-[-0.04em] text-ink">
+                The landing page story.
+              </h3>
+            </div>
+            <p className="max-w-sm text-sm leading-6 text-ink/66">
+              This is the application layer of the direction, not just the aesthetic layer.
+            </p>
+          </div>
+
           <div className="mt-5 grid gap-4">
-            {recommended.brief.sectionOutline.map((item) => (
+            {recommended.brief.sectionOutline.map((item, index) => (
               <div
                 key={item.section}
-                className="rounded-[1.5rem] border border-ink/10 bg-[#f4eadc] p-5"
+                className="grid gap-4 rounded-[1.5rem] border border-ink/10 bg-[#f4eadc] p-5 md:grid-cols-[auto_1fr]"
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/42">
-                  {item.section}
-                </p>
-                <p className="mt-3 text-sm leading-6 text-ink/72">{item.purpose}</p>
-                <p className="mt-2 text-sm leading-6 text-ink/62">{item.contentRole}</p>
-                <p className="mt-2 text-sm leading-6 text-ink/56">Should feel: {item.feel}</p>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 bg-paper/60 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/60">
+                  {(index + 1).toString().padStart(2, "0")}
+                </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/42">
+                    {item.section}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-ink/72">{item.purpose}</p>
+                  <p className="mt-2 text-sm leading-6 text-ink/62">{item.contentRole}</p>
+                  <p className="mt-2 text-sm leading-6 text-ink/56">
+                    Should feel: {item.feel}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -212,12 +257,18 @@ export function DirectionResults() {
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/42">
               CTA Strategy
             </p>
+            <p className="mt-3 text-sm leading-6 text-ink/66">
+              How the recommendation should ask for action without breaking its tone.
+            </p>
             <BulletList items={recommended.brief.ctaStrategy} />
           </section>
 
           <section className="rounded-[2rem] border border-ink/10 bg-[#eadccd] p-6 md:p-7">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/42">
               Anti-Patterns
+            </p>
+            <p className="mt-3 text-sm leading-6 text-ink/66">
+              The mistakes the build should avoid even if they look superficially appealing.
             </p>
             <BulletList items={recommended.brief.antiPatterns} />
           </section>
@@ -233,6 +284,9 @@ export function DirectionResults() {
             <h3 className="mt-4 font-display text-4xl leading-none tracking-[-0.04em] text-ink">
               Compare the two alternate directions.
             </h3>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/66">
+              These are not backup versions of the same idea. They are meaningful alternate reads of the same product.
+            </p>
           </div>
           <Link
             href="/create"
@@ -251,10 +305,16 @@ export function DirectionResults() {
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/42">
                 Alternate Direction
               </p>
-              <h4 className="mt-4 font-display text-3xl leading-none tracking-[-0.04em] text-ink">
-                {alternate.name}
-              </h4>
-              <p className="mt-4 text-sm leading-6 text-ink/72">{alternate.oneLineThesis}</p>
+              <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                <div>
+                  <h4 className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
+                    {alternate.name}
+                  </h4>
+                  <p className="mt-4 text-sm leading-6 text-ink/72">
+                    {alternate.oneLineThesis}
+                  </p>
+                </div>
+              </div>
               <BulletList label="Feels like" items={alternate.feelLike} />
               <TextBlock label="Visual Character" body={alternate.visualCharacter} />
               <TextBlock label="Choose this if" body={alternate.chooseThisIf} />

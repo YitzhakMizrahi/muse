@@ -4,23 +4,97 @@ export default function CreatePage() {
   return (
     <main className="min-h-screen bg-paper text-ink">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-4 md:px-6 md:py-6">
-        <section className="rounded-[2rem] border border-ink/10 bg-[#ede2d2] px-5 py-5 md:px-7">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40">
-            Muse Session
-          </p>
-          <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <section className="overflow-hidden rounded-[2rem] border border-ink/10 bg-[#ede2d2]">
+          <div className="grid gap-0 lg:grid-cols-[1.25fr_0.75fr]">
+            <div className="px-5 py-6 md:px-7 md:py-7">
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40">
+                Muse Session
+              </p>
+              <div className="mt-4 flex flex-col gap-3">
+                <div>
+                  <h1 className="max-w-3xl font-display text-4xl leading-[0.92] tracking-[-0.04em] text-ink md:text-6xl">
+                    Give Muse a real starting point.
+                  </h1>
+                  <p className="mt-4 max-w-2xl text-sm leading-6 text-ink/70 md:text-base">
+                    Milestone 1 is about proving the core loop: rough idea in, one
+                    recommended direction out, plus two alternates worth comparing.
+                  </p>
+                </div>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {["Prompt first", "Adaptive questions", "One recommendation"].map(
+                    (item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-ink/10 bg-paper/45 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/60"
+                      >
+                        {item}
+                      </span>
+                    ),
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-ink/10 bg-[#e4d6c5] px-5 py-6 lg:border-l lg:border-t-0 md:px-7 md:py-7">
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/42">
+                What happens here
+              </p>
+              <div className="mt-5 grid gap-4">
+                <div>
+                  <p className="font-display text-2xl leading-none tracking-[-0.03em] text-ink">
+                    1. Start rough
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-ink/68">
+                    Begin with one rough idea instead of filling a full brief.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-display text-2xl leading-none tracking-[-0.03em] text-ink">
+                    2. Let Muse sharpen it
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-ink/68">
+                    Answer three short questions so the recommendation has a real point of view.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-display text-2xl leading-none tracking-[-0.03em] text-ink">
+                    3. Compare the outcome
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-ink/68">
+                    Review one recommended direction and two alternates worth reacting to.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="hidden rounded-[2rem] border border-ink/10 bg-paper/60 px-5 py-4 md:block md:px-7">
+          <div className="grid gap-3 md:grid-cols-3">
             <div>
-              <h1 className="font-display text-4xl leading-[0.94] tracking-[-0.04em] text-ink md:text-5xl">
-                Give Muse a real starting point.
-              </h1>
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-ink/70 md:text-base">
-                Milestone 1 is about proving the core loop: rough idea in, one
-                recommended direction out, plus two alternates worth comparing.
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/40">
+                Input guided
+              </p>
+              <p className="mt-2 text-sm leading-6 text-ink/68">
+                The page should feel like guided thinking, not intake admin.
               </p>
             </div>
-            <p className="max-w-sm font-mono text-[10px] uppercase tracking-[0.24em] text-ink/38">
-              Input guided. Output structured. Taste stays human.
-            </p>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/40">
+                Output structured
+              </p>
+              <p className="mt-2 text-sm leading-6 text-ink/68">
+                The result should feel like a reusable direction system, not a chat response.
+              </p>
+            </div>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/40">
+                Taste stays human
+              </p>
+              <p className="mt-2 text-sm leading-6 text-ink/68">
+                Muse recommends; the user still decides what should move forward.
+              </p>
+            </div>
           </div>
         </section>
 

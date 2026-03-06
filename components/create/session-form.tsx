@@ -135,6 +135,13 @@ export function SessionForm() {
           enough signal to recommend a direction worth building on.
         </p>
 
+        <div className="mt-6 flex flex-wrap gap-2">
+          <ProgressPill active label="Prompt" />
+          <ProgressPill active={promptReady} label="Audience" />
+          <ProgressPill active={promptReady && audienceReady} label="Feel" />
+          <ProgressPill active={promptReady && audienceReady && feelsReady} label="Action" />
+        </div>
+
         <form className="mt-8 grid gap-6" onSubmit={handleSubmit} noValidate>
           <Field
             label="The rough idea"
@@ -327,7 +334,7 @@ export function SessionForm() {
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="rounded-[2rem] border border-ink/10 bg-[#eee3d4] px-5 py-6 md:px-7 md:py-8"
+        className="rounded-[2rem] border border-ink/10 bg-[#eee3d4] px-5 py-6 md:px-7 md:py-8 xl:sticky xl:top-6 xl:self-start"
       >
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink/42">
           Normalized Session
@@ -336,6 +343,9 @@ export function SessionForm() {
         <div className="mt-6 rounded-[1.75rem] border border-ink/10 bg-paper/80 p-5">
           <p className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
             {normalized?.productSummary ?? "Muse will summarize the idea here."}
+          </p>
+          <p className="mt-4 text-sm leading-6 text-ink/62">
+            This is the shape Muse will actually generate from once the session is valid.
           </p>
           <div className="mt-6 grid gap-4">
             <PreviewBlock
@@ -411,7 +421,7 @@ function QuestionCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="grid gap-4 rounded-[1.75rem] border border-paper/10 bg-paper/[0.04] p-5">
+    <section className="grid gap-4 rounded-[1.75rem] border border-paper/10 bg-paper/[0.05] p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-paper/45">
@@ -420,12 +430,27 @@ function QuestionCard({
           <h2 className="mt-3 font-display text-3xl leading-none tracking-[-0.04em]">
             {title}
           </h2>
-          <p className="mt-3 text-sm leading-6 text-paper/62">{note}</p>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-paper/62">{note}</p>
         </div>
         {error ? <span className="text-xs text-ember">{error}</span> : null}
       </div>
       {children}
     </section>
+  );
+}
+
+function ProgressPill({ active, label }: { active: boolean; label: string }) {
+  return (
+    <span
+      className={cn(
+        "rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition",
+        active
+          ? "border-paper/28 bg-paper/10 text-paper"
+          : "border-paper/10 text-paper/42",
+      )}
+    >
+      {label}
+    </span>
   );
 }
 
